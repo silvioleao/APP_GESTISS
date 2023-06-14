@@ -1,0 +1,122 @@
+@extends('_template._main')
+
+@section('title', 'Painel do Cidadão')
+
+@section('body')
+    <!-- Header -->
+    @include('_components._header_pages')
+    <!-- Header End -->
+
+    <!-- Preloader -->
+    @include('_components._spiner')
+    <!-- Preloader end-->
+
+    <!-- Sidebar -->
+    @include('_components._sidebar')
+    <!-- Sidebar End -->
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <div class="container fb">
+            <div class="serach-area">
+                <div class="input-group search-input">
+                    <input type="text" placeholder="Filtrar atendimentos" class="form-control style-1 main-in">
+                    <a href="javascript:void(0);" class="btn-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+
+                <div class="list item-list recent-jobs-list">
+                    <ul class="placeholder-wave">
+                        <li>
+                            <div class="item-content">
+                                <a href="job-detail.html" class="item-media">
+                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                </a>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-subtitle placeholder">Nome da Unidade</div>
+                                        <h6 class="item-title placeholder">
+                                            <a href="job-detail.html">Tipo de Serviço</a>
+                                        </h6>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fa-solid fa-calendar-circle-user"></i>
+                                        <div class="item-price placeholder">Data e hora</div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                        <div class="item-price placeholder">Nome do médico</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <a href="job-detail.html" class="item-media">
+                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                </a>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-subtitle placeholder">Nome da Unidade</div>
+                                        <h6 class="item-title placeholder">
+                                            <a href="job-detail.html">Tipo de Serviço</a>
+                                        </h6>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fa-solid fa-calendar-circle-user"></i>
+                                        <div class="item-price placeholder">Data e hora</div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                        <div class="item-price placeholder">Nome do médico</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <a href="job-detail.html" class="item-media">
+                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                </a>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-subtitle placeholder">Nome da Unidade</div>
+                                        <h6 class="item-title placeholder">
+                                            <a href="job-detail.html">Tipo de Serviço</a>
+                                        </h6>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fa-solid fa-calendar-circle-user"></i>
+                                        <div class="item-price placeholder">Data e hora</div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                        <div class="item-price placeholder">Nome do médico</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Job List -->
+            </div>
+        </div>
+    </div>
+    <!-- Page Content End-->
+
+    <!-- Menubar -->
+    @include('_components._menu_bar')
+    <!-- Menubar -->
+
+    <!-- PWA Offcanvas -->
+    {{-- @include('_components.instalar_pwa') --}}
+    <!-- PWA Offcanvas End -->
+    </div>
+@stop
+
+@section('script')
+    <script src="{{ mix('js/paginas/atendimento.min.js') }}"></script>
+@endsection

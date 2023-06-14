@@ -1,11 +1,9 @@
-import Swiper from "swiper";
-import "swiper/css";
 /* JavaScript Document */
-jQuery(document).ready(function () {
+jQuery(() => {
     "use strict";
 
     // Get Started
-    if (jQuery(".get-started").length > 0) {
+    if ($(".get-started").length > 0) {
         var swiperGetStarted = new Swiper(".get-started", {
             speed: 500,
             parallax: true,
@@ -24,12 +22,12 @@ jQuery(document).ready(function () {
     }
 
     /* Default Swiper */
-    if (jQuery(".dz-swiper").length > 0) {
+    if ($(".dz-swiper").length > 0) {
         var swiperDefult = new Swiper(".dz-swiper", {
             speed: 500,
             parallax: true,
             slidesPerView: "auto",
-            spaceBetween: 10,
+            spaceBetween: 5,
             loop: false,
             navigation: {
                 nextEl: ".swiper-btn-next",
@@ -43,7 +41,7 @@ jQuery(document).ready(function () {
     }
 
     /* Swiper Center */
-    if (jQuery(".swiper-center").length > 0) {
+    if ($(".swiper-center").length > 0) {
         var swiperCenter = new Swiper(".swiper-center", {
             speed: 500,
             parallax: true,
@@ -62,7 +60,7 @@ jQuery(document).ready(function () {
         });
     }
 
-    if (jQuery(".team-swiper-4").length > 0) {
+    if ($(".team-swiper-4").length > 0) {
         var swiper4 = new Swiper(".team-swiper-4", {
             speed: 1500,
             parallax: true,
@@ -73,7 +71,7 @@ jQuery(document).ready(function () {
     }
 
     /* Swiper Slider Full */
-    if (jQuery(".swiper-slider-full").length > 0) {
+    if ($(".swiper-slider-full").length > 0) {
         var swiperGetStarted = new Swiper(".swiper-slider-full", {
             speed: 500,
             parallax: true,
@@ -93,7 +91,7 @@ jQuery(document).ready(function () {
     }
 
     /* Swiper Slider Full */
-    if (jQuery(".dz-swiper-gallery").length > 0) {
+    if ($(".dz-swiper-gallery").length > 0) {
         var swiper = new Swiper(".dz-swiper-gallery-thumb", {
             spaceBetween: 10,
             slidesPerView: 4,

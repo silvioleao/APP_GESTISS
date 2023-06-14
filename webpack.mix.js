@@ -17,6 +17,14 @@ mix.autoload({
     jquery: ["$", "jQuery", "window.jQuery"],
 });
 
-mix.sass("resources/scss/main.scss", "public/css/app.min.css")
-    .js(`${JS_PATH}/app.js`, `${JS_PUBLIC}/app.min.js`)
+mix.js(`${JS_PATH}/app.js`, `${JS_PUBLIC}/app.min.js`)
+    .js(`${JS_PATH}/toast.js`, `${JS_PUBLIC}/toast.min.js`)
+    .scripts(`${JS_PATH}/pages/painel.js`, `${JS_PUBLIC}/paginas/painel.min.js`)
+    .scripts(
+        `${JS_PATH}/pages/atendimentos.js`,
+        `${JS_PUBLIC}/paginas/atendimento.min.js`
+    )
+
+    .sass("resources/scss/main.scss", "public/css/app.min.css")
+    .css("resources/css/fontawesome.css", "public/css/fontawesome.min.css")
     .version();

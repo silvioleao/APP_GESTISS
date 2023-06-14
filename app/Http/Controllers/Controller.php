@@ -10,4 +10,17 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    function login()
+    {
+        $route = "login";
+        if (isset($_COOKIE['token'])) {
+
+            if ($_COOKIE['token'] != "") {
+                $route = "painel";
+            }
+        }
+
+        return redirect()->route($route);
+    }
 }

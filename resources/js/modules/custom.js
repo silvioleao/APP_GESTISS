@@ -1,20 +1,16 @@
 var Gestiss = (function () {
     "use strict";
 
-    let deferredPrompt; // Allows to show the install prompt
+    let deferredPrompt; // Permite mostrar o prompt de instalação do PWA
     let setupButton;
     window.addEventListener("beforeinstallprompt", (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        // Previne que o chrome >= 67 mostre o prompt automaticamente.
         e.preventDefault();
-        // Stash the event so it can be triggered later.
+        // Salva o evento para ser chamado depois
         deferredPrompt = e;
-        console.log("beforeinstallprompt fired");
         if (setupButton == undefined) {
             setupButton = document.getElementsByClassName("pwa-btn");
         }
-        // Show the setup button
-        setupButton.style.display = "inline";
-        setupButton.disabled = false;
     });
 
     /* Search Bar ============ */
@@ -24,35 +20,35 @@ var Gestiss = (function () {
     // Preloader
     var handlePreloader = function () {
         setTimeout(function () {
-            jQuery("#preloader").fadeOut(300);
+            $("#preloader").fadeOut(300);
         }, 300);
     };
 
     // Menubar Toggler
     var handleMenubar = function () {
-        jQuery(".menu-toggler").on("click", function () {
-            jQuery(".sidebar").toggleClass("show");
+        $(".menu-toggler").on("click", function () {
+            $(".sidebar").toggleClass("show");
         });
-        jQuery(".menu-toggler").on("click", function () {
-            jQuery(".menu-toggler").toggleClass("show");
+        $(".menu-toggler").on("click", function () {
+            $(".menu-toggler").toggleClass("show");
         });
     };
 
     // Show Pass
     var handleShowPass = function () {
-        jQuery(".show-pass").on("click", function () {
-            jQuery(this).toggleClass("active");
-            if (jQuery("#dz-password").attr("type") == "password") {
-                jQuery("#dz-password").attr("type", "text");
-            } else if (jQuery("#dz-password").attr("type") == "text") {
-                jQuery("#dz-password").attr("type", "password");
+        $(".show-pass").on("click", function () {
+            $(this).toggleClass("active");
+            if ($("#dz-password").attr("type") == "password") {
+                $("#dz-password").attr("type", "text");
+            } else if ($("#dz-password").attr("type") == "text") {
+                $("#dz-password").attr("type", "password");
             }
         });
     };
 
     // Sticky Header
     var handleIsFixed = function () {
-        $(window).scroll(function () {
+        $(window).on("scroll", function () {
             var scroll = $(window).scrollTop();
             if (scroll >= 50) {
                 $(".main-bar").addClass("sticky-header");
@@ -75,8 +71,8 @@ var Gestiss = (function () {
 
     // Default Select
     var handleSelectpicker = function () {
-        if (jQuery(".default-select").length > 0) {
-            jQuery(".default-select").selectpicker();
+        if ($(".default-select").length > 0) {
+            $(".default-select").selectpicker();
         }
     };
 
@@ -116,71 +112,15 @@ var Gestiss = (function () {
     // Scroll Top
     var handleScrollTop = function () {
         "use strict";
-        jQuery(window).bind("scroll", function () {
-            var scroll = jQuery(window).scrollTop();
+        $(window).bind("scroll", function () {
+            var scroll = $(window).scrollTop();
             if (scroll > 100) {
-                jQuery(".btn.scrollTop").fadeIn(500);
+                $(".btn.scrollTop").fadeIn(500);
             } else {
-                jQuery(".btn.scrollTop").fadeOut(500);
+                $(".btn.scrollTop").fadeOut(500);
             }
         });
         /* page scroll top on click function end*/
-    };
-
-    // Chat button
-    var handleChatBox = function () {
-        $(".btn-chat").on("click", function () {
-            var chatInput = $(".message-area .form-control");
-            var chatMessageValue = chatInput.val();
-
-            var chatEmojiArea = $(".append-media").html();
-
-            var current = new Date();
-            var ampm = current.getHours() >= 12 ? "pm" : "am";
-            //alert(current.getMinutes());
-            var actualTime =
-                (current.getHours() % 12) +
-                ":" +
-                current.getMinutes() +
-                " " +
-                ampm;
-
-            var messageEmojiHtml =
-                '<div class="chat-content user">' +
-                '<div class="message-item">' +
-                '<div class="bubble">' +
-                chatEmojiArea +
-                "</div>" +
-                '<div class="message-time">' +
-                actualTime +
-                "</div>" +
-                "</div>" +
-                "</div>";
-
-            if (chatEmojiArea.length > 0) {
-                $(".chat-box-area").append(messageEmojiHtml);
-            }
-
-            var messageHtml =
-                '<div class="chat-content user">' +
-                '<div class="message-item">' +
-                '<div class="bubble">' +
-                chatMessageValue +
-                "</div>" +
-                '<div class="message-time">' +
-                actualTime +
-                "</div>" +
-                "</div>" +
-                "</div>";
-
-            if (chatMessageValue.length > 0) {
-                var appendMessage = $(".chat-box-area").append(messageHtml);
-            }
-
-            window.scrollTo(0, document.body.scrollHeight);
-            var clearChatInput = chatInput.val("");
-            var clearChatInputE = $(".append-media").empty();
-        });
     };
 
     // Page back btn
@@ -195,35 +135,67 @@ var Gestiss = (function () {
     var handlePWAModal = function () {
         if (!window.matchMedia("(display-mode: standalone)").matches) {
             setTimeout(function () {
-                jQuery(".pwa-offcanvas").addClass("show");
-                jQuery(".pwa-backdrop").addClass("fade show");
-            }, 3000);
-            jQuery(".pwa-backdrop, .pwa-close, .pwa-btn").on(
-                "click",
-                function () {
-                    jQuery(".pwa-offcanvas").slideUp(500, function () {
-                        jQuery(this).removeClass("show");
-                    });
-                    setTimeout(function () {
-                        console.log("Rodando");
-                        // Show the prompt
-                        deferredPrompt.prompt();
-                        setupButton.disabled = true;
-                        // Wait for the user to respond to the prompt
-                        deferredPrompt.userChoice.then((choiceResult) => {
-                            if (choiceResult.outcome === "accepted") {
-                                console.log("PWA setup accepted");
-                                // hide our user interface that shows our A2HS button
-                                setupButton.style.display = "none";
-                            } else {
-                                console.log("PWA setup rejected");
-                            }
-                            deferredPrompt = null;
-                        });
+                $(".pwa-offcanvas").addClass("show");
+                $(".pwa-backdrop").addClass("fade show");
+            }, 1000);
 
-                        jQuery(".pwa-backdrop").removeClass("show");
-                    }, 500);
-                }
+            $(".pwa-btn").on("click", function () {
+                //Se clicar em instalar
+                $(".pwa-offcanvas").slideUp(500, function () {
+                    $(this).removeClass("show");
+                });
+                setTimeout(function () {
+                    // Mostra o prompt de instalação
+                    deferredPrompt.prompt();
+                    setupButton.disabled = true;
+                    //
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === "accepted") {
+                            console.log("PWA setup accepted");
+                            // hide our user interface that shows our A2HS button
+                            setupButton.style.display = "none";
+                        } else {
+                            console.log("PWA setup rejected");
+                        }
+                        deferredPrompt = null;
+                    });
+
+                    $(".pwa-backdrop").removeClass("show");
+                }, 500);
+            });
+
+            $(".pwa-backdrop, .pwa-close").on("click", function () {
+                $(".pwa-offcanvas").slideUp(500, function () {
+                    $(this).removeClass("show");
+                    $(".pwa-backdrop").removeClass("show");
+                });
+
+                return false;
+            });
+        }
+    };
+
+    //Saudações ao usuário
+    var handleHour = () => {
+        let now = new Date();
+        if (now.getHours() >= 0 && now.getHours() < 5) {
+            $(".dz-info span").text("Boa madrugada");
+        } else if (now.getHours() >= 5 && now.getHours() < 12) {
+            $(".dz-info span").text("Bom dia");
+        } else if (now.getHours() >= 12 && now.getHours() < 18) {
+            $(".dz-info span").text("Boa tarde");
+        } else {
+            $(".dz-info span").text("Boa noite");
+        }
+    };
+
+    var handleUserInfos = () => {
+        let user = JSON.parse(localStorage.getItem("infos"));
+        if (user != null) {
+            $(".dz-info .user-name").text(user.usu_nome);
+            $(".user-avatar").attr(
+                "src",
+                `https://gestiss.sertsoft.com.br/storage/usuarios_images/${user.usu_foto}`
             );
         }
     };
@@ -245,27 +217,27 @@ var Gestiss = (function () {
 
     // Theme Version
     var handleThemeVersion = function () {
-        jQuery(".theme-btn").on("click", function () {
-            jQuery("body").toggleClass("theme-dark");
-            jQuery(".theme-btn").toggleClass("active");
+        $(".theme-btn").on("click", function () {
+            $("body").toggleClass("theme-dark");
+            $(".theme-btn").toggleClass("active");
         });
     };
 
     var handleRemoveClass = function () {
-        jQuery(".nav-color").on("click", function () {
-            jQuery(".sidebar, .menu-toggler").removeClass("show");
+        $(".nav-color").on("click", function () {
+            $(".sidebar, .menu-toggler").removeClass("show");
         });
     };
 
     var handleToggleButton = function () {
-        jQuery(".dz-treeview-item").on("click", function () {
-            jQuery(this).toggleClass("open");
+        $(".dz-treeview-item").on("click", function () {
+            $(this).toggleClass("open");
         });
     };
 
     //Light Gallery ============
     var handleLightgallery = function () {
-        if (jQuery("#lightgallery").length > 0) {
+        if ($("#lightgallery").length > 0) {
             lightGallery(document.getElementById("lightgallery"), {
                 plugins: [lgZoom, lgThumbnail],
             });
@@ -274,7 +246,7 @@ var Gestiss = (function () {
 
     //Tab Slide ============
     var handleTabSlide = function () {
-        if (jQuery(".tab-slide-effect").length > 0) {
+        if ($(".tab-slide-effect").length > 0) {
             var a = $(".tab-slide-effect li.active").width();
             var b = $(".tab-slide-effect li.active").position().left;
             $(".tab-active-indicator").css({
@@ -298,27 +270,23 @@ var Gestiss = (function () {
 
     //Nav Menu ============
     var handleNavMenu = function () {
-        jQuery(".navbar-nav > li > a, .sub-menu > li > a")
+        $(".navbar-nav > li > a, .sub-menu > li > a")
             .unbind()
             .on("click", function (e) {
-                if (jQuery(this).parent().hasClass("open")) {
-                    jQuery(this).parent().removeClass("open");
+                if ($(this).parent().hasClass("open")) {
+                    $(this).parent().removeClass("open");
                     $(this).next().slideUp();
                 } else {
                     $(this).parent().parent().find("li .sub-menu").slideUp();
                     $(this).next().slideDown();
-                    jQuery(this)
-                        .parent()
-                        .parent()
-                        .find("li")
-                        .removeClass("open");
-                    jQuery(this).parent().addClass("open");
+                    $(this).parent().parent().find("li").removeClass("open");
+                    $(this).parent().addClass("open");
                 }
             });
     };
 
     var handleOtp = function () {
-        if (jQuery("#otp").length > 0)
+        if ($("#otp").length > 0)
             $(".digit-group")
                 .find("input")
                 .each(function () {
@@ -357,6 +325,10 @@ var Gestiss = (function () {
                 });
     };
 
+    var handleIconMenu = () => {
+        $(".menubar-area > .menubar-nav > .active > i").addClass("fa-xl");
+    };
+
     function getCodeBoxElement(index) {
         return document.getElementById("codeBox" + index);
     }
@@ -391,8 +363,6 @@ var Gestiss = (function () {
             handleMenubar();
             handleToggleButton();
             handleShowPass();
-            handleChatBox();
-            //handleMenubarNav();
             handleIsFixed();
             handleScrollTop();
             handleLightgallery();
@@ -406,6 +376,9 @@ var Gestiss = (function () {
             handleRemoveClass();
             handleTabSlide();
             handleOtp();
+            handleHour();
+            handleIconMenu();
+            handleUserInfos();
         },
 
         load: function () {
@@ -420,7 +393,7 @@ var Gestiss = (function () {
 })();
 
 /* Document.ready Start */
-jQuery(document).ready(function () {
+jQuery(() => {
     $('[data-bs-toggle="popover"]').popover();
     ("use strict");
     Gestiss.init();
@@ -430,12 +403,12 @@ jQuery(document).ready(function () {
 /* Document.ready END */
 
 /* Window Load START */
-jQuery(window).on("load", function () {
+$(window).on("load", function () {
     "use strict";
     Gestiss.load();
     setTimeout(function () {
-        jQuery("#splashscreen").addClass("active");
-        jQuery("#splashscreen").fadeOut(2000);
+        $("#splashscreen").addClass("active");
+        $("#splashscreen").fadeOut(2000);
     }, 2000);
 
     $(".theme-dark .custom-switch input")
@@ -445,7 +418,7 @@ jQuery(window).on("load", function () {
 /*  Window Load END */
 
 /* Window Resize START */
-jQuery(window).on("resize", function () {
+$(window).on("resize", function () {
     "use strict";
     Gestiss.resize();
 });

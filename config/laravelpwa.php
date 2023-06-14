@@ -3,16 +3,15 @@
 return [
     'name' => 'APP GESTISS',
     'manifest' => [
-        'name' => env('APP_NAME', 'My PWA App'),
+        'name' => env('APP_NAME', 'APP GESTISS'),
         'short_name' => 'GESTISS',
-        'id' => '/',
+        'id' => '/painel',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
         'display' => 'standalone',
         'orientation' => 'any',
         'status_bar' => 'black',
-        "prefer_related_applications" => false,
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/icon-72x72.png',
@@ -61,18 +60,31 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'Gestiss',
-                'description' => 'Shortcut Link 1 Description',
-                'url' => '/',
+                'name' => 'Agendamentos',
+                'description' => 'Acesso aos agendamentos de atendimento',
+                'url' => '/agendamentos',
                 'icons' => [
                     "src" => "/images/icons/icon-72x72.png",
                     "purpose" => "any"
                 ]
             ],
             [
-                'name' => 'Shortcut Link 2',
-                'description' => 'Shortcut Link 2 Description',
-                'url' => '/'
+                'name' => 'Atendimentos',
+                'description' => 'Acesso aos atendimentos realizados',
+                'url' => '/atendimentos',
+                'icons' => [
+                    "src" => "/images/icons/icon-72x72.png",
+                    "purpose" => "any"
+                ]
+            ],
+            [
+                'name' => 'Medicamentos',
+                'description' => 'Acesso aos medicamentos receitados',
+                'url' => '/presricoes',
+                'icons' => [
+                    "src" => "/images/icons/icon-72x72.png",
+                    "purpose" => "any"
+                ]
             ]
         ],
         'custom' => []
