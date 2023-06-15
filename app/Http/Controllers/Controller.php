@@ -23,4 +23,9 @@ class Controller extends BaseController
 
         return redirect()->route($route);
     }
+
+    function logout()
+    {
+        return redirect()->route('login')->withoutCookie(cookie("token"));
+    }
 }

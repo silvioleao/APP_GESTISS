@@ -1,19 +1,19 @@
 <div class="menubar-area">
     <div class="toolbar-inner menubar-nav">
 
-        <a href="{{ route('atendimentos') }}" class="nav-link">
+        <a href="{{ route('atendimentos') }}" class="nav-link {{ Request::is('atendimentos') ? 'active' : '' }}">
             <i class="fa-duotone fa-stethoscope"></i>
         </a>
 
-        <a href="javascript:void(0)" class="nav-link">
+        <a href="{{ route('prescricoes') }}" class="nav-link {{ Request::is('prescricoes') ? 'active' : '' }}">
             <i class="fa-duotone fa-prescription-bottle-pill"></i>
         </a>
 
-        <a href="{{ route('painel') }}" class="nav-link active">
+        <a href="{{ route('painel') }}" class="nav-link {{ Request::is('painel') ? 'active' : '' }}">
             <i class="fa-duotone fa-house"></i>
         </a>
 
-        <a href="javascript:void(0)" class="nav-link">
+        <a href="javascript:void(0)" class="nav-link {{ Request::is('agendamentos') ? 'active' : '' }}">
             <i class="fa-duotone fa-calendar"></i>
         </a>
 

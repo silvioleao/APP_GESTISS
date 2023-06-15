@@ -1,6 +1,6 @@
 @extends('_template._main')
 
-@section('title', 'Painel do Cidadão')
+@section('title', 'Prescrições')
 
 @section('body')
     <!-- Header -->
@@ -27,10 +27,10 @@
                 </div>
 
                 <div class="list item-list recent-jobs-list">
-                    <ul class="placeholder-wave">
+                    <ul class="placeholder-wave prescrcicao-lista">
                         <li>
                             <div class="item-content">
-                                <a href="job-detail.html" class="item-media">
+                                <a href="javascript:void(0)" class="item-media">
                                     <i class="fa-solid fa-hospital fa-3x"></i>
                                 </a>
                                 <div class="item-inner">
@@ -100,6 +100,13 @@
                             </div>
                         </li>
                     </ul>
+
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary btn-carregar-infos" onclick="carregarInfos()">Carregar
+                                mais...</button>
+                        </div>
+                    </div>
                 </div>
                 <!-- Job List -->
             </div>
@@ -118,5 +125,5 @@
 @stop
 
 @section('script')
-    <script src="{{ mix('js/paginas/atendimento.min.js') }}"></script>
+    <script src="{{ mix('js/paginas/prescricoes.min.js') }}"></script>
 @endsection

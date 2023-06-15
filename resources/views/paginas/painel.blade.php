@@ -149,7 +149,7 @@
                     <!-- Atendimentos Recentes -->
                     <div class="title-bar">
                         <h5 class="dz-title">Atendimentos Recentes</h5>
-                        <a class="btn btn-sm text-primary" href="search.html">Mais</a>
+                        <a class="btn btn-sm text-primary" href="{{ route('atendimentos') }}">Mais</a>
                     </div>
                     <div class="list item-list recent-jobs-list">
                         <ul class="list-atendimento-recente placeholder-glow">

@@ -6,7 +6,7 @@
         </div>
         <div class="dz-info">
             <span></span>
-            <h5 class="name user-name">Henry Kanwil</h5>
+            <h5 class="name user-name"></h5>
         </div>
     </div>
     <ul class="nav navbar-nav">
@@ -31,7 +31,7 @@
         </li>
 
         <li>
-            <a class="nav-link" href="ui-components.html">
+            <a class="nav-link" href="{{ route('prescricoes') }}">
                 <span class="dz-icon bg-skyblue light">
                     <i class="fa-solid fa-prescription-bottle-pill"></i>
                 </span>
@@ -66,7 +66,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link" href="onboading.html">
+            <a class="nav-link" href="{{ route('logout') }}">
                 <span class="dz-icon bg-red light">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18"
                         height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">

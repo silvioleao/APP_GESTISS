@@ -20,10 +20,24 @@ Route::get('/entrar', function () {
     return view('login');
 })->name('login');
 
+Route::get('sair', [Controller::class, 'logout'])->name('logout');
+
+//Rota do painel
 Route::get('/painel', function () {
     return view('paginas.painel');
 })->middleware('auth')->name('painel');
 
+//Rota de listagem dos atendimentos
 Route::get('/atendimentos', function () {
-    return view('paginas.atendimentos');
+    return view('paginas.atendimento.atendimentos');
 })->middleware('auth')->name('atendimentos');
+
+//Rota de detalhe do atendimento
+Route::get('/detalhe/atendimento/{atendimento}', function () {
+    return view('paginas.atendimento.detalhe');
+})->middleware('auth')->name('detalhe.atendimento');
+
+//Rota de prescrições
+Route::get('/prescricoes', function () {
+    return view('paginas.prescricoes');
+})->middleware('auth')->name('prescricoes');

@@ -1,11 +1,10 @@
 let user = JSON.parse(localStorage.getItem("infos"));
-
 //Carrega os dois banners de atendimentos e agendamentos
 $.ajax({
     url: `${BASE_URL}/baners`,
     method: "GET",
     data: {
-        cdo_codigo: user.usu_codigo,
+        cdo_codigo: user.cidadao.cdo_codigo,
     },
     success: function (data) {
         $(".banner-atendimento").text(data.atendimentos);
@@ -26,14 +25,14 @@ $.ajax({
 
 //Carrega os ultimos 5 atendimentos
 $.ajax({
-    url: `${BASE_URL}/atendimentos_painel`,
+    url: `${BASE_URL}/atendimentos?page=1`,
     method: "GET",
     data: {
-        cdo_codigo: user.usu_codigo,
+        cdo_codigo: user.cidadao.cdo_codigo,
     },
     success: function (data) {
         $(".list-atendimento-recente").html("");
-        data.forEach((element) => {
+        data.data.forEach((element) => {
             $(".list-atendimento-recente").append(`
                 <li>
                     <div class="item-content">
