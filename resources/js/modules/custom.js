@@ -190,17 +190,22 @@ var Gestiss = (function () {
     };
 
     var handleUserInfos = () => {
-        let user = JSON.parse(localStorage.getItem("infos"));
-        if (user != null) {
-            let nome =
-                user.cidadao.cdo_nomesocial != ""
-                    ? user.cidadao.cdo_nomesocial
-                    : user.usu_nome;
-            $(".dz-info .user-name").text(nome);
-            $(".user-avatar").attr(
-                "src",
-                `https://gestiss.sertsoft.com.br/storage/usuarios_images/${user.usu_foto}`
-            );
+        if (
+            localStorage.getItem("infos") != "undefined" ||
+            localStorage.getItem("infos") != undefined
+        ) {
+            let user = JSON.parse(localStorage.getItem("infos"));
+            if (user != null) {
+                let nome =
+                    user.cidadao.cdo_nomesocial != ""
+                        ? user.cidadao.cdo_nomesocial
+                        : user.usu_nome;
+                $(".dz-info .user-name").text(nome);
+                $(".user-avatar").attr(
+                    "src",
+                    `https://gestiss.sertsoft.com.br/storage/usuarios_images/${user.usu_foto}`
+                );
+            }
         }
     };
 

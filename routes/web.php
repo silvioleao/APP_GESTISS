@@ -25,29 +25,29 @@ Route::get('sair', [Controller::class, 'logout'])->name('logout');
 //Rota do painel
 Route::get('/painel', function () {
     return view('paginas.painel');
-})->name('painel');
+})->middleware('auth')->name('painel');
 
 //Rota de listagem dos atendimentos
 Route::get('/atendimentos', function () {
     return view('paginas.atendimento.atendimentos');
-})->name('atendimentos');
+})->middleware('auth')->name('atendimentos');
 
 //Rota de detalhe do atendimento
 Route::get('/detalhe/atendimento/{atendimento}', function () {
     return view('paginas.atendimento.detalhe');
-})->name('detalhe.atendimento');
+})->middleware('auth')->name('detalhe.atendimento');
 
 //Rota de prescrições
 Route::get('/prescricoes', function () {
     return view('paginas.prescricao.prescricoes');
-})->name('prescricoes');
+})->middleware('auth')->name('prescricoes');
 
 //Rota de prescrições
 Route::get('/agendamentos', function () {
     return view('paginas.agendamento.agendamentos');
-})->name('agendamentos');
+})->middleware('auth')->name('agendamentos');
 
 //Rota de prescrições
 Route::get('/novo/agendamento', function () {
     return view('paginas.agendamento.novo_agendamento');
-})->name('novo_agendamento');
+})->middleware('auth')->name('novo_agendamento');

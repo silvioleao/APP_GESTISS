@@ -41,3 +41,4 @@ mix.js(`${JS_PATH}/app.js`, `${JS_PUBLIC}/app.min.js`)
     .css("resources/css/fontawesome.css", "public/css/fontawesome.min.css")
     .css("resources/css/quillPart.css", "public/css/quill.min.css")
     .version();
+mix.browserSync('192.168.100.104:8001');
