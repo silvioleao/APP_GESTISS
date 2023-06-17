@@ -1,11 +1,7 @@
-let user = JSON.parse(localStorage.getItem("infos"));
 //Carrega os dois banners de atendimentos e agendamentos
 $.ajax({
     url: `${BASE_URL}/baners`,
     method: "GET",
-    data: {
-        cdo_codigo: user.cidadao.cdo_codigo,
-    },
     success: function (data) {
         $(".banner-atendimento").text(data.atendimentos);
         $(".banner-agendamento").text(data.agendamentos);
@@ -27,25 +23,24 @@ $.ajax({
 $.ajax({
     url: `${BASE_URL}/atendimentos?page=1`,
     method: "GET",
-    data: {
-        cdo_codigo: user.cidadao.cdo_codigo,
-    },
     success: function (data) {
         $(".list-atendimento-recente").html("");
         data.data.forEach((element) => {
             $(".list-atendimento-recente").append(`
                 <li>
                     <div class="item-content">
-                        <a href="job-detail.html" class="item-media">
+                        <a href="/detalhe/atendimento/${
+                            element.ate_codigo
+                        }" class="item-media">
                             <i class="fa-solid fa-hospital fa-3x"></i>
                         </a>
                         <div class="item-inner">
                             <div class="item-title-row">
                                 <div class="item-subtitle">Nome da Unidade</div>
                                 <h6 class="item-title">
-                                    <a href="job-detail.html">${
-                                        element.tis_nome
-                                    }</a>
+                                    <a href="/detalhe/atendimento/${
+                                        element.ate_codigo
+                                    }">${element.tis_nome}</a>
                                 </h6>
                             </div>
 

@@ -1,8 +1,8 @@
+import Cookies from "js-cookie";
+window.Cookies = Cookies;
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import jQuery from "jquery";
-import Cookies from "js-cookie";
-window.Cookies = Cookies;
 window.$ = jQuery;
 window.jQuery = jQuery;
 
@@ -20,3 +20,5 @@ import "./modules/swal";
 import "./modules/ajax";
 
 import "./modules/moment";
+
+import "./modules/datetime";

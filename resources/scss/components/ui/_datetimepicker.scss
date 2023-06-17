@@ -1,0 +1,39 @@
+.bootstrap-datetimepicker-widget {
+
+    background-color: #0274A7;
+    .table th,
+    .table td {
+        border: 0;
+    }
+
+    table th,
+    table td,
+    table td.day {
+        height: 36px;
+        line-height: 36px;
+        width: 36px;
+        background-color: #0274A7;
+        color: #fff;
+
+        &.active{
+            background-color: #fff;
+            color: #000;
+        }
+    }
+
+    table td.old {
+        color: #bdbdbd!important;
+    }
+
+    table td.new {
+        color: #bdbdbd !important;
+    }
+
+    .today:before{
+        border-bottom-color: #fff;
+    }
+
+    table th {
+        font-weight: $headings-font-weight;
+    }
+}

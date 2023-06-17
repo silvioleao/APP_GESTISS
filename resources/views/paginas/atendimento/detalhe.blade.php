@@ -20,7 +20,7 @@
         <div class="content-body fb">
             <div class="dz-banner-heading">
                 <div class="overlay-black-light">
-                    <img src="assets/images/bg1.png" class="bnr-img" alt="">
+                    <img src="{{ asset('images/atendimento-background.png') }}" class="bnr-img" alt="">
                 </div>
             </div>
 

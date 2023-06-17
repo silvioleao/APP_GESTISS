@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="author-box">
         <div class="dz-media">
-            <img src="https://gestiss.sertsoft.com.br/storage/usuarios_images/45-img.jpg"
+            <img src="https://gestiss.sertsoft.com.br/storage/usuarios_images/avatar.png"
                 class="rounded-circle user-avatar" alt="author-image">
         </div>
         <div class="dz-info">
@@ -40,7 +40,7 @@
         </li>
 
         <li>
-            <a class="nav-link" href="notification.html">
+            <a class="nav-link" href="{{ route('agendamentos') }}">
                 <span class="dz-icon bg-green light">
                     <i class="fa-duotone fa-calendar"></i>
                 </span>

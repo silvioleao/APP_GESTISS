@@ -2,6 +2,10 @@
 
 @section('title', 'Prescrições')
 
+@section('style')
+    <link rel="stylesheet" href="{{ mix('css/quill.min.css') }}">
+@stop
+
 @section('body')
     <!-- Header -->
     @include('_components._header_pages')
@@ -27,11 +31,11 @@
                 </div>
 
                 <div class="list item-list recent-jobs-list">
-                    <ul class="placeholder-wave prescrcicao-lista">
+                    <ul class="placeholder-wave prescricao-lista">
                         <li>
                             <div class="item-content">
                                 <a href="javascript:void(0)" class="item-media">
-                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                    <i class="fa-duotone fa-prescription-bottle-pill fa-3x"></i>
                                 </a>
                                 <div class="item-inner">
                                     <div class="item-title-row">
@@ -55,7 +59,7 @@
                         <li>
                             <div class="item-content">
                                 <a href="job-detail.html" class="item-media">
-                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                    <i class="fa-duotone fa-prescription-bottle-pill fa-3x"></i>
                                 </a>
                                 <div class="item-inner">
                                     <div class="item-title-row">
@@ -79,7 +83,7 @@
                         <li>
                             <div class="item-content">
                                 <a href="job-detail.html" class="item-media">
-                                    <i class="fa-solid fa-hospital fa-3x"></i>
+                                    <i class="fa-duotone fa-prescription-bottle-pill fa-3x"></i>
                                 </a>
                                 <div class="item-inner">
                                     <div class="item-title-row">
@@ -122,6 +126,7 @@
     {{-- @include('_components.instalar_pwa') --}}
     <!-- PWA Offcanvas End -->
     </div>
+    @include('_modais._modal_prescricao')
 @stop
 
 @section('script')

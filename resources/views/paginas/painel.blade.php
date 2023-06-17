@@ -118,17 +118,6 @@
                                         </a>
                                     </div>
 
-
-                                    <div class="swiper-slide" style="width: 100px;">
-                                        <a href="#" class="btn p-0" title="Vacinas">
-                                            <div class="card m-0">
-                                                <div class="card-body">
-                                                    <i class="fa-duotone fa-syringe text-primary fa-2x"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
                                     <div class="swiper-slide" style="width: 100px;">
                                         <a href="#" class="btn p-0" title="Exames">
                                             <div class="card m-0">

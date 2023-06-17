@@ -70,7 +70,9 @@
                     $("#preloader").fadeIn(300);
                 },
                 success: function(data) {
-                    Cookies.set("token", data.token)
+                    Cookies.set("token", data.token, {
+                        expires: 365
+                    });
                     localStorage.setItem("infos", JSON.stringify(data.user));
                     window.location.href = "/painel";
                 },

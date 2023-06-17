@@ -1,5 +1,3 @@
-let user = JSON.parse(localStorage.getItem("infos"));
-
 var page = 1;
 
 $(() => {
@@ -11,12 +9,9 @@ function carregarInfos() {
     $.ajax({
         url: `${BASE_URL}/atendimentos?page=${page}`,
         method: "GET",
-        data: {
-            cdo_codigo: user.cidadao.cdo_codigo,
-        },
         beforeSend: function (req) {
             $(".btn-carregar-infos").html(
-                "<i class='fa-duotone fa-arrows-rotate fa-spin'></i>"
+                "<i class='fa-solid fa-spinner-third fa-spin'></i>"
             );
         },
         success: function (data) {
@@ -69,6 +64,13 @@ function carregarInfos() {
                     </div>
                 </li>
             `);
+            });
+        },
+        error: function (err) {
+            $(".atendimentos-lista").html("");
+            Toast.fire({
+                text: err.responseJSON.message,
+                icon: "error",
             });
         },
     }).done(function () {

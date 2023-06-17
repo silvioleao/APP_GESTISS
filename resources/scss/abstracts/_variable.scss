@@ -8,7 +8,7 @@ $border: #DDDDDD;
 $primary   : #673ab7;
 $secondary : #48A9F8 !default;
 $success   : #56c760 !default;
-$info      : #58bad7 !default;
+$info      : #0B50F3 !default;
 $warning   : #f0a901 !default;
 $danger    : #f75a5b !default;
 $light     : #f4f4f4 !default;
@@ -89,7 +89,7 @@ $info-light: lighten($info, 30%);
 $dark-light: lighten($dark, 50%);
 
 /////////////////////////
-// Opacity 
+// Opacity
 /////////////////////////
 $primary-opacity: rgba($primary, 0.1);
 $secondary-opacity: rgba($secondary, 0.5);
@@ -148,4 +148,4 @@ $vimeo: #1ab7ea;
 	--border-color: #{$border};
 	--bg-white: #FFF;
 	--title: #{$headings-color};
-} 
+}

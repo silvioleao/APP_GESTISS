@@ -192,7 +192,11 @@ var Gestiss = (function () {
     var handleUserInfos = () => {
         let user = JSON.parse(localStorage.getItem("infos"));
         if (user != null) {
-            $(".dz-info .user-name").text(user.usu_nome);
+            let nome =
+                user.cidadao.cdo_nomesocial != ""
+                    ? user.cidadao.cdo_nomesocial
+                    : user.usu_nome;
+            $(".dz-info .user-name").text(nome);
             $(".user-avatar").attr(
                 "src",
                 `https://gestiss.sertsoft.com.br/storage/usuarios_images/${user.usu_foto}`

@@ -32,7 +32,12 @@ mix.js(`${JS_PATH}/app.js`, `${JS_PUBLIC}/app.min.js`)
         `${JS_PATH}/pages/prescricoes.js`,
         `${JS_PUBLIC}/paginas/prescricoes.min.js`
     )
+    .scripts(
+        `${JS_PATH}/pages/agendamento.js`,
+        `${JS_PUBLIC}/paginas/agendamento.min.js`
+    )
 
     .sass("resources/scss/main.scss", "public/css/app.min.css")
     .css("resources/css/fontawesome.css", "public/css/fontawesome.min.css")
+    .css("resources/css/quillPart.css", "public/css/quill.min.css")
     .version();

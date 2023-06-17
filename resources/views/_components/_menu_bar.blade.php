@@ -13,7 +13,7 @@
             <i class="fa-duotone fa-house"></i>
         </a>
 
-        <a href="javascript:void(0)" class="nav-link {{ Request::is('agendamentos') ? 'active' : '' }}">
+        <a href="{{ route('agendamentos') }}" class="nav-link {{ Request::is('agendamentos') ? 'active' : '' }}">
             <i class="fa-duotone fa-calendar"></i>
         </a>
 

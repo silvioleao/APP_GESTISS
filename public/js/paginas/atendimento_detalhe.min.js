@@ -1,4 +1,3 @@
-let user = JSON.parse(localStorage.getItem("infos"));
 let url = window.location.pathname;
 let parts = url.split("/");
 let ate_codigo = parts.pop() || parts.pop();
