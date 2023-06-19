@@ -32,7 +32,7 @@
     <div class="page-content">
         <div class="container fb">
 
-            <div class="card">
+            <div class="card card-data">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
@@ -64,6 +64,9 @@
                 </div>
             </div>
 
+            <div class="row lista-medicos">
+
+            </div>
 
         </div>
     </div>
@@ -122,6 +125,40 @@
         function selecionarData(data) {
             $("a").removeClass("btn-primary")
             $(`a[onclick="selecionarData('${data}')"]`).addClass("btn-primary");
+            $.get(`${BASE_URL}/dias_agendamentos?data=${data}&step=1`, function(success) {
+                $(".lista-medicos").html("");
+                success.info.forEach(element => {
+                    if (element.disponibilidade) {
+                        $(".lista-medicos").append(`
+                            <div class="col-12">
+                                <div class="card job-post">
+                                    <div class="card-body p-0">
+
+                                        <div class="d-flex align-items-center media-80 text-center me-3 rounded">
+                                            <div class="col-12">
+                                                <img src="https://gestiss.sertsoft.com.br/storage/usuarios_images/${element.usu_foto}" alt="">
+                                            </div>
+                                        </div>
+
+                                        <div class="card-info">
+                                            <h6 class="title">${element.usu_nome}</h6>
+                                            <span class="location">${element.esp_nome}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+
+                })
+
+            }).fail(function(err) {
+                Toast.fire({
+                    text: err.responseJSON.message,
+                    icon: 'error'
+                });
+            });
         }
     </script>
 @endsection

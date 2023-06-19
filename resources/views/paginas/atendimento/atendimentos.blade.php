@@ -17,7 +17,7 @@
 
     <!-- Page Content -->
     <div class="page-content">
-        <div class="container fb"> 
+        <div class="container fb">
             <div class="serach-area">
                 <div class="input-group search-input">
                     <input type="text" placeholder="Filtrar atendimentos" class="form-control style-1 main-in">
@@ -122,8 +122,11 @@
     {{-- @include('_components.instalar_pwa') --}}
     <!-- PWA Offcanvas End -->
     </div>
+
+    @include('paginas.atendimento._modal_chamada_video')
 @stop
 
 @section('script')
-    <script src="{{ mix('js/paginas/atendimento.min.js') }}"></script>
+    <script src="{{ mix('js/telemedicina/video.min.js') }}"></script>
+    <script defer src="{{ mix('js/paginas/atendimento.min.js') }}"></script>
 @endsection

@@ -36,9 +36,18 @@ mix.js(`${JS_PATH}/app.js`, `${JS_PUBLIC}/app.min.js`)
         `${JS_PATH}/pages/agendamento.js`,
         `${JS_PUBLIC}/paginas/agendamento.min.js`
     )
+    //Códigos de telemedicina
+    .scripts(
+        [
+            `${JS_PATH}/telemedicina/tether.min.js`,
+            `${JS_PATH}/telemedicina/EnxRtc.js`,
+            `${JS_PATH}/telemedicina/confo.js`,
+        ],
+        `${JS_PUBLIC}/telemedicina/video.min.js`
+    )
 
     .sass("resources/scss/main.scss", "public/css/app.min.css")
     .css("resources/css/fontawesome.css", "public/css/fontawesome.min.css")
     .css("resources/css/quillPart.css", "public/css/quill.min.css")
     .version();
-mix.browserSync('192.168.100.104:8001');
+mix.browserSync("192.168.100.104:8001");
