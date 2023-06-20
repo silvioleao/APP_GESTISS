@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
-//https://gestiss.sertsoft.com.br/api/
-const BASE_URL = "http://localhost:8000/api/mobile";
-const API_URL = "http://localhost:8000/api/";
+const API_URL = "http://localhost:8000/api";
+//const API_URL = "https://gestiss.sertsoft.com.br/api";
 
 $.ajaxSetup({
     headers: {
@@ -9,5 +8,4 @@ $.ajaxSetup({
         Authorization: `Bearer ${Cookies.get("token")}`,
     },
 });
-window.BASE_URL = BASE_URL;
 window.API_URL = API_URL;

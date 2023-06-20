@@ -4,7 +4,7 @@ $(() => {
 
 function carregarInfos() {
     $.ajax({
-        url: `${BASE_URL}/agendamentos`,
+        url: `${API_URL}/mobile/agendamentos`,
         method: "GET",
         success: function (data) {
             if (data.data.length == 0) {

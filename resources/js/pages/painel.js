@@ -1,6 +1,6 @@
 //Carrega os dois banners de atendimentos e agendamentos
 $.ajax({
-    url: `${BASE_URL}/baners`,
+    url: `${API_URL}/mobile/baners`,
     method: "GET",
     success: function (data) {
         $(".banner-atendimento").text(data.atendimentos);
@@ -21,7 +21,7 @@ $.ajax({
 
 //Carrega os ultimos 5 atendimentos
 $.ajax({
-    url: `${BASE_URL}/atendimentos?page=1`,
+    url: `${API_URL}/mobile/atendimentos?page=1`,
     method: "GET",
     success: function (data) {
         $(".list-atendimento-recente").html("");

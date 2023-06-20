@@ -125,7 +125,7 @@
         function selecionarData(data) {
             $("a").removeClass("btn-primary")
             $(`a[onclick="selecionarData('${data}')"]`).addClass("btn-primary");
-            $.get(`${BASE_URL}/dias_agendamentos?data=${data}&step=1`, function(success) {
+            $.get(`${API_URL}/mobile/dias_agendamentos?data=${data}&step=1`, function(success) {
                 $(".lista-medicos").html("");
                 success.info.forEach(element => {
                     if (element.disponibilidade) {

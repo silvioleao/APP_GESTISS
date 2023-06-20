@@ -7,7 +7,7 @@ $(() => {
 //Carrega os ultimos 5 atendimentos
 function carregarInfos() {
     $.ajax({
-        url: `${BASE_URL}/atendimentos?page=${page}`,
+        url: `${API_URL}/mobile/atendimentos?page=${page}`,
         method: "GET",
         beforeSend: function (req) {
             $(".btn-carregar-infos").html(

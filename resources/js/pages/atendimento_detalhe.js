@@ -6,7 +6,7 @@ $(".header").addClass("transparent");
 
 //Carrega os ultimos 5 atendimentos
 $.ajax({
-    url: `${BASE_URL}/atendimento_detalhe`,
+    url: `${API_URL}/mobile/atendimento_detalhe`,
     method: "GET",
     data: {
         atendimento: ate_codigo,

@@ -275,7 +275,7 @@ var createToken = function (roomId, callback) {
     let details = {
         sala_id: roomId,
     };
-    var apiUrl = `${API_URL}telemedicina/create-token/`;
+    var apiUrl = `${API_URL}/telemedicina/create-token/`;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
