@@ -291,7 +291,14 @@ var createToken = function (roomId, callback) {
             }
         }
     };
+
+    let value = `; ${document.cookie}`;
+    let parts = value.split(`; token=`);
+    let tokenCookie = "";
+    if (parts.length === 2) tokenCookie = parts.pop().split(";").shift();
+    console.log(details);
     xhttp.open("POST", apiUrl, true);
     xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("Authorization", `Bearer ${tokenCookie}`);
     xhttp.send(JSON.stringify(details));
 };
