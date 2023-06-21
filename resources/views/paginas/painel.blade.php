@@ -227,7 +227,7 @@
     <!-- Menubar -->
 
     <!-- PWA Offcanvas -->
-    {{-- @include('_components.instalar_pwa') --}}
+    @include('_components.instalar_pwa')
     <!-- PWA Offcanvas End -->
     </div>
 @stop

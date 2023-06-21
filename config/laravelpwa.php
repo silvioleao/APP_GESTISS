@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'name' => 'APP GESTISS',
+    'name' => 'APP_GESTISS',
     'manifest' => [
         'name' => env('APP_NAME', 'APP GESTISS'),
         'short_name' => 'GESTISS',
-        'id' => '/painel',
+        'id' => '',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#0274A7',
         'display' => 'standalone',
-        'orientation' => 'any',
+        'orientation' => 'portrait',
         'status_bar' => 'black',
         'icons' => [
             '72x72' => [

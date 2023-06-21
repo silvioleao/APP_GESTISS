@@ -24,9 +24,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="modal-footer" style="justify-content: center;">
                 <div class="row" id="controls-div" style="display: none;">
                     <div class="controls" id="controls">
 

@@ -61,7 +61,7 @@
             });
 
             $.ajax({
-                url: "http://api.test.com.br:8000/api/login",
+                url: `${API_URL}/login`,
                 method: "POST",
                 data: formData,
                 processData: false,
