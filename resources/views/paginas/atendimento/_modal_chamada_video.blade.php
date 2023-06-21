@@ -19,7 +19,7 @@
                             </div>
 
                             <div class="col-12">
-                                <div id="multi_video_container_div"></div>
+                                <div id="multi_video_container_div" style="max-width: 40vw;max-height: 40vh;"></div>
                             </div>
                         </div>
                     </div>
