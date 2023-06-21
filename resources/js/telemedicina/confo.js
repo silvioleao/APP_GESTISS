@@ -17,19 +17,18 @@ var options = {
     id: "vcx_1001",
     attachMode: "",
     player: {
-        autoplay: "",
+        autoplay: "autoplay",
         name: "",
         nameDisplayMode: "",
         frameFitMode: "bestFit",
-        skin: "classic",
+        skin: "default",
         class: "",
-        height: "inherit",
-        width: "inherit",
-        minHeight: "120px",
-        minWidth: "160px",
-        aspectRatio: "",
-        volume: 0,
-        media: "",
+        height: "240px",
+        width: "320px",
+        minHeight: "250px",
+        minWidth: "350px",
+        aspectRatio: "9:16",
+        volume: 5,
         loader: {
             show: false,
             url: "/images/video/loader.gif",
@@ -41,7 +40,7 @@ var options = {
     toolbar: {
         displayMode: "auto",
         autoDisplayTimeout: 0,
-        position: "top",
+        position: "bottom",
         skin: "default",
         iconset: "default",
         class: "",
@@ -74,7 +73,7 @@ function initVideo(roomId) {
         audio: true,
         video: true,
         data: true,
-        videoSize: [640, 480, 640, 480],
+        videoSize: [480, 640, 950, 950],
         options: options,
         attributes: {
             name: name,
@@ -109,13 +108,12 @@ function initVideo(roomId) {
             stream.show("liveStream_" + countStream, options);
             countStream++;
         } else {
-            options.player.height = "80px";
-            options.player.width = "80px";
+            options.player.height = "90px";
+            options.player.width = "90px";
             options.player.loader.class = "";
             options.player.loader.show = false;
             var controlsDiv = document.getElementById("controls-div");
             controlsDiv.style.display = "block";
-            document.getElementById("local_video_div").appendChild(controlsDiv);
             stream.show("local_video_div", options);
         }
     };
@@ -267,15 +265,13 @@ function videoMute() {
 }
 
 function endCall() {
+    videoMute();
     room.disconnect();
     $(".row-video").attr("hidden", true);
 }
 
 var createToken = function (roomId, callback) {
-    let details = {
-        sala_id: roomId,
-    };
-    var apiUrl = `${API_URL}/telemedicina/create-token/`;
+    var apiUrl = `${API_URL}/telemedicina/create-token-mob?sala_id=${roomId}`;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -296,9 +292,8 @@ var createToken = function (roomId, callback) {
     let parts = value.split(`; token=`);
     let tokenCookie = "";
     if (parts.length === 2) tokenCookie = parts.pop().split(";").shift();
-    console.log(details);
-    xhttp.open("POST", apiUrl, true);
+    xhttp.open("GET", apiUrl, true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.setRequestHeader("Authorization", `Bearer ${tokenCookie}`);
-    xhttp.send(JSON.stringify(details));
+    xhttp.send();
 };

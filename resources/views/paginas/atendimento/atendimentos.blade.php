@@ -2,6 +2,15 @@
 
 @section('title', 'Atendimentos Cidadão')
 
+@section('style')
+    <style>
+        #stream2 {
+            max-width: 160px;
+            max-height: 160px;
+        }
+    </style>
+@stop
+
 @section('body')
     <!-- Header -->
     @include('_components._header_pages')

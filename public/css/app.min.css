@@ -122,7 +122,7 @@
   --bs-link-decoration: underline;
   --bs-link-hover-color: #522e92;
   --bs-link-hover-color-rgb: 82, 46, 146;
-  --bs-code-color: #d63384;
+  --bs-code-color: #e83e8c;
   --bs-highlight-bg: #ffeece;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -193,7 +193,7 @@
   --bs-link-hover-color: #b6a1dd;
   --bs-link-color-rgb: 164, 137, 212;
   --bs-link-hover-color-rgb: 182, 161, 221;
-  --bs-code-color: #e685b5;
+  --bs-code-color: #f18bba;
   --bs-border-color: #495057;
   --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
   --bs-form-valid-color: #67c5ad;
@@ -30774,6 +30774,50 @@ section {
   color: #5543d1;
 }
 
+.text-pink {
+  color: #e83e8c;
+}
+
+.text-purple {
+  color: #6f42c1;
+}
+
+.text-gray-100 {
+  color: #f8f9fa;
+}
+
+.text-gray-200 {
+  color: #e9ecef;
+}
+
+.text-gray-300 {
+  color: #dee2e6;
+}
+
+.text-gray-400 {
+  color: #ced4da;
+}
+
+.text-gray-500 {
+  color: #adb5bd;
+}
+
+.text-gray-600 {
+  color: #6c757d;
+}
+
+.text-gray-700 {
+  color: #495057;
+}
+
+.text-gray-800 {
+  color: #343a40;
+}
+
+.text-gray-900 {
+  color: #212529;
+}
+
 .bg-maroon {
   background-color: #dd2ca0;
 }
@@ -34704,8 +34748,8 @@ button:focus {
   border-color: #f0a901;
 }
 .progress-bar.pink {
-  background-color: #d63384;
-  border-color: #d63384;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
 }
 
 .progress {

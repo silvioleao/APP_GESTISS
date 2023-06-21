@@ -49,7 +49,7 @@
         </li>
 
         <li>
-            <a class="nav-link" href="profile.html">
+            <a class="nav-link" href="{{ route('atendimentos', ['telemedicina' => true]) }}">
                 <span class="dz-icon bg-yellow light">
                     <i class="fa-duotone fa-video"></i>
                 </span>
