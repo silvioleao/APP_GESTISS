@@ -17,11 +17,11 @@
 <meta property="og:site_name" content="GESTISS">
 <meta property="og:title" content="GESTISS">
 <meta property="og:description" content="Sistema para controle e gestão da saúde pública">
-<meta property="og:image" content="{{ asset('images/icon.png') }}" />
+<meta property="og:image" content="{{ asset('images/icon.svg') }}" />
 <meta name="format-detection" content="telephone=no">
 
 {{-- Favicons Icon --}}
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icon.png') }}" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icon.svg') }}" />
 
 {{-- Web Application Manifest --}}
 <link rel="manifest" href="{{ route('laravelpwa.manifest') }}">

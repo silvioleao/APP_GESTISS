@@ -3,15 +3,18 @@ var Gestiss = (function () {
 
     let deferredPrompt; // Permite mostrar o prompt de instalação do PWA
     let setupButton;
-    window.addEventListener("beforeinstallprompt", (e) => {
-        // Previne que o chrome >= 67 mostre o prompt automaticamente.
-        e.preventDefault();
-        // Salva o evento para ser chamado depois
-        deferredPrompt = e;
-        if (setupButton == undefined) {
-            setupButton = document.getElementsByClassName("pwa-btn");
-        }
-    });
+    //PWA instalation
+    var handleIntall = function () {
+        window.addEventListener("beforeinstallprompt", (e) => {
+            // Previne que o chrome >= 67 mostre o prompt automaticamente.
+            e.preventDefault();
+            // Salva o evento para ser chamado depois
+            deferredPrompt = e;
+            if (setupButton == undefined) {
+                setupButton = document.getElementsByClassName("pwa-btn");
+            }
+        });
+    };
 
     /* Search Bar ============ */
     var screenWidth = $(window).width();
@@ -348,8 +351,6 @@ var Gestiss = (function () {
                 getCodeBoxElement(index + 1).focus();
             } else {
                 getCodeBoxElement(index).blur();
-                // Submit code
-                console.log("submit code ");
             }
         }
         if (eventCode === 8 && index !== 1) {
@@ -388,6 +389,7 @@ var Gestiss = (function () {
             handleHour();
             handleIconMenu();
             handleUserInfos();
+            handleIntall();
         },
 
         load: function () {

@@ -1,5 +1,5 @@
 {
-    "/js/app.min.js": "/js/app.min.js?id=6f3fe2b52acfa2a8aa319f6085ba59a6",
+    "/js/app.min.js": "/js/app.min.js?id=a0d5cc7f9939f287e36e342586d92242",
     "/js/toast.min.js": "/js/toast.min.js?id=331577c9c7fae4a22e4542f0d5c9a05d",
     "/css/app.min.css": "/css/app.min.css?id=db64ef106779d36356251bcaae6d5bbd",
     "/css/quill.min.css": "/css/quill.min.css?id=8ae94e9a8f3e17c11838d885fdd29220",
@@ -8,6 +8,6 @@
     "/js/paginas/atendimento.min.js": "/js/paginas/atendimento.min.js?id=bd52b0985f0f48f1d9f29d9ce633b870",
     "/js/paginas/atendimento_detalhe.min.js": "/js/paginas/atendimento_detalhe.min.js?id=cc50b097ef280088a86f4b9bc86e5250",
     "/js/paginas/prescricoes.min.js": "/js/paginas/prescricoes.min.js?id=522ee902136fbad1521eded2036e5581",
-    "/js/paginas/agendamento.min.js": "/js/paginas/agendamento.min.js?id=6c9c559763b7e3c9fc9fa12a8b15b65e",
-    "/js/telemedicina/video.min.js": "/js/telemedicina/video.min.js?id=2c3f5a079d5efaca679e055c626971aa"
+    "/js/paginas/agendamento.min.js": "/js/paginas/agendamento.min.js?id=64f82c44dfdb398a58d63e0bd3dcf0ce",
+    "/js/telemedicina/video.min.js": "/js/telemedicina/video.min.js?id=9847d8102a65062fbb0be04a86873041"
 }

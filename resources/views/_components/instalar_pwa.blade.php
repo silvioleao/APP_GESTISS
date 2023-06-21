@@ -1,7 +1,7 @@
 <div class="offcanvas offcanvas-bottom pwa-offcanvas">
     <div class="container">
         <div class="offcanvas-body small">
-            <img class="logo" src="{{ asset('images/icon.png') }}" alt="">
+            <img class="logo" src="{{ asset('images/icon.svg') }}" alt="">
             <h5 class="title">App GESTISS</h5>
             <p class="pwa-text">Instale o App GESTISS agora e acesse diretamente da sua gaveta de aplicativos.
             </p>
