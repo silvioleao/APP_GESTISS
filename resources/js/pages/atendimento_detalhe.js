@@ -12,7 +12,6 @@ $.ajax({
         atendimento: ate_codigo,
     },
     success: function (data) {
-        console.log(data);
         $(".content-body")
             .find(".placeholder")
             .each(function () {
