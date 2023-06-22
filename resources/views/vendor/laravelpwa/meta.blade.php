@@ -83,17 +83,19 @@
         overflow-x: hidden;
     }
 </style>
-<script type="text/javascript">
-    // Initialize the service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js', {
-            scope: '.'
-        }).then(function(registration) {
-            // Registration was successful
-            console.log('GESTISS PWA: ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-            // registration failed :(
-            console.log('GESTISS PWA: ServiceWorker registration failed: ', err);
-        });
-    }
-</script>
+@if (Request::is('painel'))
+    <script type="text/javascript">
+        // Initialize the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/serviceworker.js', {
+                scope: '.'
+            }).then(function(registration) {
+                // Registration was successful
+                console.log('GESTISS PWA: ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('GESTISS PWA: ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+@endif

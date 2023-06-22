@@ -15,70 +15,38 @@ return [
         'icons' => [
             '48x48' => [
                 'path' => '/images/icons/png/icon-48x48.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any'
             ],
             '72x72' => [
                 'path' => '/images/icons/png/icon-72x72.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any'
             ],
             '96x96' => [
                 'path' => '/images/icons/png/icon-96x96.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any'
             ],
             '128x128' => [
                 'path' => '/images/icons/png/icon-128x128.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any'
             ],
             '144x144' => [
-                'path' => '/images/icons/png/icon-128x128.png',
-                'purpose' => 'maskable'
+                'path' => '/images/icons/png/icon-144x144.png',
+                'purpose' => 'any'
             ],
             '152x152' => [
-                'path' => '/images/icons/png/icon-128x128.png',
-                'purpose' => 'maskable'
+                'path' => '/images/icons/png/icon-152x152.png',
+                'purpose' => 'any'
             ],
             '192x192' => [
                 'path' => '/images/icons/png/icon-192x192.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any maskable'
             ],
             '384x384' => [
                 'path' => '/images/icons/png/icon-384x384.png',
-                'purpose' => 'maskable'
+                'purpose' => 'any'
             ],
             '512x512' => [
                 'path' => '/images/icons/png/icon-512x512.png',
-                'purpose' => 'maskable'
-            ],
-            '72x72' => [
-                'path' => '/images/icons/svg/icon-72x72.svg',
-                'purpose' => 'any'
-            ],
-            '96x96' => [
-                'path' => '/images/icons/svg/icon-96x96.svg',
-                'purpose' => 'any'
-            ],
-            '128x128' => [
-                'path' => '/images/icons/svg/icon-128x128.svg',
-                'purpose' => 'any'
-            ],
-            '144x144' => [
-                'path' => '/images/icons/svg/icon-144x144.svg',
-                'purpose' => 'any'
-            ],
-            '152x152' => [
-                'path' => '/images/icons/svg/icon-152x152.svg',
-                'purpose' => 'any'
-            ],
-            '192x192' => [
-                'path' => '/images/icons/svg/icon-192x192.svg',
-                'purpose' => 'any'
-            ],
-            '384x384' => [
-                'path' => '/images/icons/svg/icon-384x384.svg',
-                'purpose' => 'any'
-            ],
-            '512x512' => [
-                'path' => '/images/icons/svg/icon-512x512.svg',
                 'purpose' => 'any'
             ],
         ],
@@ -102,7 +70,7 @@ return [
                 'icons' => [
                     "src" => "/images/icons/png/icon-72x72.png",
                     "purpose" => "any",
-                    "sizes" => "152x152"
+                    "sizes" => "72x72"
                 ]
             ],
             [
@@ -111,7 +79,8 @@ return [
                 'url' => '/atendimentos',
                 'icons' => [
                     "src" => "/images/icons/png/icon-72x72.png",
-                    "purpose" => "any"
+                    "purpose" => "any",
+                    "sizes" => "72x72"
                 ]
             ],
             [
@@ -120,7 +89,8 @@ return [
                 'url' => '/presricoes',
                 'icons' => [
                     "src" => "/images/icons/png/icon-72x72.png",
-                    "purpose" => "any"
+                    "purpose" => "any",
+                    "sizes" => "72x72"
                 ]
             ]
         ],
