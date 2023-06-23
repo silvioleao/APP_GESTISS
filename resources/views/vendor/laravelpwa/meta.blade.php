@@ -83,6 +83,10 @@
         OneSignal.init({
             appId: "40359e21-8148-47d0-b99f-dfa30ecd2eb8",
         });
+
+        OneSignal.getUserId(function(userId) {
+            console.log("OneSignal User ID:", userId);
+        });
     });
 </script>
 

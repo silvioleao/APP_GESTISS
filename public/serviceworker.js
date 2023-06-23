@@ -65,12 +65,22 @@ self.addEventListener("fetch", (event) => {
 //Push notifications
 self.addEventListener("push", function (event) {
     const payload = event.data ? event.data.text() : "no payload";
-    let obj = JSON.parse(payload);
+    let obj = JSON.parse(
+        `{"custom":{"i":"a6f8644f-68f9-4fd7-8bf4-f4e238ec0a65"},"alert":"TESTE EM PORTUGUES","icon":"https://img.onesignal.com/permanent/24cd4c4b-f758-4fd1-8b39-842bb4e15500/sUXAY89LTqJrV4mmLacI_icon-96x96.png"}`
+    );
     // Keep the service worker alive until the notification is created.
     event.waitUntil(
         self.registration.showNotification("GESTISS", {
             body: obj.alert,
             icon: obj.icon,
+            vibrate: [200, 100, 200, 100, 200, 100, 200],
+            actions: [
+                {
+                    action: "https://pwa.sertsoft.com.br/atendimentos",
+                    title: "Coffee",
+                    type: "button",
+                },
+            ],
         })
     );
 });
