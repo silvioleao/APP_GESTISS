@@ -65,12 +65,12 @@ self.addEventListener("fetch", (event) => {
 //Push notifications
 self.addEventListener("push", function (event) {
     const payload = event.data ? event.data.text() : "no payload";
-    let obj = JSON.stringify(payload);
+    let obj = JSON.parse(payload);
     // Keep the service worker alive until the notification is created.
     event.waitUntil(
         self.registration.showNotification("GESTISS", {
             body: obj.alert,
-            icon: obj.icon
+            icon: obj.icon,
         })
     );
 });
