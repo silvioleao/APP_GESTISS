@@ -22,3 +22,5 @@ import "./modules/ajax";
 import "./modules/moment";
 
 import "./modules/datetime";
+
+import "./modules/firebase";

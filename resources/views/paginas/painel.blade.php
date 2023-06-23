@@ -82,7 +82,8 @@
                                         <a href="#" class="btn p-0" title="Alergias">
                                             <div class="card m-0">
                                                 <div class="card-body">
-                                                    <i class="fa-duotone fa-lungs-virus text-primary fa-2x"></i>
+                                                    <i class="fa-duotone fa-lungs-virus text-primary fa-2x mb-2"></i>
+                                                    <small class="text-center">Alergias</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -92,7 +93,8 @@
                                         <a href="#" class="btn p-0" title="Atestados">
                                             <div class="card m-0">
                                                 <div class="card-body">
-                                                    <i class="fa-duotone fa-file-signature text-primary fa-2x"></i>
+                                                    <i class="fa-duotone fa-file-signature text-primary fa-2x mb-2"></i>
+                                                    <small class="text-center">Atesta.</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -102,7 +104,8 @@
                                         <a href="#" class="btn p-0" title="Encaminhamentos">
                                             <div class="card m-0">
                                                 <div class="card-body">
-                                                    <i class="fa-duotone fa-file-export text-primary fa-2x"></i>
+                                                    <i class="fa-duotone fa-file-export text-primary fa-2x mb-2"></i>
+                                                    <small class="text-center">Encam.</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -112,7 +115,8 @@
                                         <a href="#" class="btn p-0" title="Médicos que já atenderam">
                                             <div class="card m-0">
                                                 <div class="card-body">
-                                                    <i class="fa-duotone fa-user-doctor text-primary fa-2x"></i>
+                                                    <i class="fa-duotone fa-user-doctor text-primary fa-2x mb-2"></i>
+                                                    <small class="text-center">Médicos</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -122,7 +126,9 @@
                                         <a href="#" class="btn p-0" title="Exames">
                                             <div class="card m-0">
                                                 <div class="card-body">
-                                                    <i class="fa-duotone fa-person-dots-from-line text-primary fa-2x"></i>
+                                                    <i
+                                                        class="fa-duotone fa-person-dots-from-line text-primary fa-2x mb-2"></i>
+                                                    <small class="text-center">Exames</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -227,7 +233,7 @@
     <!-- Menubar -->
 
     <!-- PWA Offcanvas -->
-    @include('_components.instalar_pwa')
+    {{-- @include('_components.instalar_pwa') --}}
     <!-- PWA Offcanvas End -->
     </div>
 @stop

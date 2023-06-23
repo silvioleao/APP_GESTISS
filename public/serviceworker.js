@@ -25,8 +25,8 @@ var filesToCache = [
 ];
 
 // Cache on install
-self.addEventListener("install", (event) => {
-    this.skipWaiting();
+self.addEventListener("install", async (event) => {
+    //this.skipWaiting();
     event.waitUntil(
         caches.open(staticCacheName).then((cache) => {
             return cache.addAll(filesToCache);

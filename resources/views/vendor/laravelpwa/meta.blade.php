@@ -76,6 +76,16 @@
 <meta name="msapplication-TileColor" content="{{ $config['background_color'] }}">
 <meta name="msapplication-TileImage" content="{{ data_get(end($config['icons']), 'src') }}">
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" defer></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: "40359e21-8148-47d0-b99f-dfa30ecd2eb8",
+        });
+    });
+</script>
+
 <style>
     html,
     body {
@@ -90,8 +100,7 @@
             navigator.serviceWorker.register('/serviceworker.js', {
                 scope: '.'
             }).then(function(registration) {
-                // Registration was successful
-                console.log('GESTISS PWA: ServiceWorker registration successful with scope: ', registration.scope);
+                console.log("GESTISS PWA: ServiceWorker registration success !");
             }, function(err) {
                 // registration failed :(
                 console.log('GESTISS PWA: ServiceWorker registration failed: ', err);
