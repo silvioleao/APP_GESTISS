@@ -85,7 +85,16 @@
         });
 
         OneSignal.getUserId(function(userId) {
-            console.log("OneSignal User ID:", userId);
+            fetch("https://gestiss.sertsoft.com.br/mobile/one_signal", {
+                method: "GET",
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    "Authorization": `Bearer ${Cookies.get("token")}`,
+                },
+                body: JSON.stringify({
+                    "one_signal_id": userId
+                })
+            });
         });
     });
 </script>
