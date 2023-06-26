@@ -85,18 +85,12 @@
         });
 
         OneSignal.getUserId(function(userId) {
-            const headers = new Headers();
-            headers.append("X-CSRF-TOKEN", $('meta[name="csrf-token"]').attr("content"));
-            headers.append("Authorization", `Bearer ${Cookies.get("token")}`);
-
-            const myRequest = new Request(
-                `https://gestiss.sertsoft.com.br/mobile/one_signal?one_signal_id=${userId}`, {
-                    method: "GET",
-                    headers: headers,
-                    mode: "cors",
-                    cache: "default",
-                });
-            fetch(myRequest);
+            let apiUrl = `https://gestiss.sertsoft.com.br/mobile/one_signal?one_signal_id=${userId}`;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", apiUrl, true);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.setRequestHeader("Authorization", `Bearer ${Cookies.get("token")}`);
+            xhttp.send();
         });
     });
 </script>
