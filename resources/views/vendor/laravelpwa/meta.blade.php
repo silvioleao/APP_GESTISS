@@ -86,7 +86,7 @@
 
         OneSignal.getUserId(function(userId) {
             let apiUrl =
-            `https://gestiss.sertsoft.com.br/api/mobile/one_signal?one_signal_id=${userId}`;
+            `https://gestiss.sertsoft.com.br/api/mobile/one_signal?onesignal_key=${userId}`;
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", apiUrl, true);
             xhttp.setRequestHeader("Content-Type", "application/json");
