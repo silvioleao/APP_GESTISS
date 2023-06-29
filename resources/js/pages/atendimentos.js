@@ -1,5 +1,5 @@
 var page = 1;
-
+ 
 $(() => {
     carregarInfos();
 });

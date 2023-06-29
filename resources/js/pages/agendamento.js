@@ -5,16 +5,24 @@ $(() => {
 
 function carregarInfos() {
     $.ajax({
-        url: `${API_URL}/mobile/agendamentos`,
+        url: `${API_URL}/mobile/agendamentos?page=${page}`,
         method: "GET",
+        beforeSend: function (req) {
+            $(".btn-carregar-infos").html(
+                "<i class='fa-solid fa-spinner-third fa-spin'></i>"
+            );
+        },
         success: function (data) {
+            $(".btn-carregar-infos").html("Carregar mais...");
+            console.log(data.data.length);
             if (data.data.length == 0) {
                 Toast.fire({
-                    text: "Nenhum outro atendimento encontrado",
+                    text: "Nenhum outro agendamento encontrado",
                     icon: "warning",
                 });
                 return false;
             }
+
             if (page == 1) {
                 $(".agendamento-lista").html("");
                 $(".agendamento-lista").removeClass("placeholder-wave");
