@@ -51,3 +51,7 @@ Route::get('/agendamentos', function () {
 Route::get('/novo/agendamento', function () {
     return view('paginas.agendamento.novo_agendamento');
 })->middleware('auth')->name('novo_agendamento');
+
+Route::get('/cidadao/cadastro', function (){
+    return view('paginas.cidadao.cadastro');
+})->middleware('auth')->name('cadastro');
