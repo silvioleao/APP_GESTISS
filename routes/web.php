@@ -20,6 +20,11 @@ Route::get('/entrar', function () {
     return view('login');
 })->name('login');
 
+
+Route::get('/cadastro', function () {
+    return view('paginas.cidadao.cadastro');
+})->name('cadastro');
+
 Route::get('sair', [Controller::class, 'logout'])->name('logout');
 
 //Rota do painel
@@ -52,6 +57,4 @@ Route::get('/novo/agendamento', function () {
     return view('paginas.agendamento.novo_agendamento');
 })->middleware('auth')->name('novo_agendamento');
 
-Route::get('/cidadao/cadastro', function (){
-    return view('paginas.cidadao.cadastro');
-})->middleware('auth')->name('cadastro');
+Route::get('perfil', [Controller::class, 'perfil'])->name('perfil');

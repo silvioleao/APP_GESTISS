@@ -58,7 +58,7 @@
         </li>
 
         <li>
-            <a class="nav-link" href="messages.html">
+            <a class="nav-link" href="{{ route('perfil') }}">
                 <span class="dz-icon bg-skyblue light">
                     <i class="fa-duotone fa-user"></i>
                 </span>
@@ -86,7 +86,7 @@
                         </g>
                     </svg>
                 </span>
-                <span>Logout</span>
+                <span>Sair</span>
             </a>
         </li>
 
@@ -106,7 +106,7 @@
                 <span class="dz-icon bg-green light">
                     <i class="fa-solid fa-moon"></i>
                 </span>
-                <span>Dark Mode</span>
+                <span>Modo Escuro</span>
                 <div class="custom-switch">
                     <input type="checkbox" class="switch-input theme-btn" id="toggle-dark-menu">
                     <label class="custom-switch-label" for="toggle-dark-menu"></label>

@@ -23,7 +23,7 @@
                 <h2 class="user-name mb-0"></h2>
             </div>
             <div class="dz-media media-45 rounded-circle">
-                <a href="profile.html">
+                <a href="{{ route('perfil') }}">
                     <img src="" class="rounded-circle user-avatar" alt="author-image">
                 </a>
             </div>
@@ -227,15 +227,6 @@
         </div>
     </div>
     <!-- Page Content End-->
-
-    <!-- Menubar -->
-    @include('_components._menu_bar')
-    <!-- Menubar -->
-
-    <!-- PWA Offcanvas -->
-    {{-- @include('_components.instalar_pwa') --}}
-    <!-- PWA Offcanvas End -->
-    </div>
 @stop
 
 @section('script')

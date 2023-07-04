@@ -46,7 +46,8 @@
     <!-- Footer -->
     <footer class="footer fixed">
         <div class="container">
-            <a href="register.html" class="btn btn-primary light btn-rounded text-primary d-block">Criar uma conta</a>
+            <a href="{{ route('cadastro') }}" class="btn btn-primary light btn-rounded text-primary d-block">Criar uma
+                conta</a>
         </div>
     </footer>
     <!-- Footer End -->

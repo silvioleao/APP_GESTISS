@@ -25,6 +25,11 @@ $.ajax({
     method: "GET",
     success: function (data) {
         $(".list-atendimento-recente").html("");
+        if (typeof data == "string") {
+            data.includes("GESTISS - Login")
+                ? (window.location.href = "/sair")
+                : "";
+        }
         data.data.forEach((element) => {
             $(".list-atendimento-recente").append(`
                 <li>

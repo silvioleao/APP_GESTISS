@@ -28,4 +28,8 @@ class Controller extends BaseController
     {
         return redirect()->route('login')->withoutCookie(cookie("token"));
     }
+
+    function perfil() {
+        return view('paginas.cidadao.perfil');
+    }
 }

@@ -23,6 +23,16 @@
 
     </div>
 
+    @if (!Request::is('entrar') && !Request::is('cadastro'))
+        <!-- Menubar -->
+        @include('_components._menu_bar')
+        <!-- Menubar -->
+
+        <!-- PWA Offcanvas -->
+        {{-- @include('_components.instalar_pwa') --}}
+        <!-- PWA Offcanvas End -->
+    @endif
+
     <script src="{{ mix('js/app.min.js') }}"></script>
 
     @yield('script')

@@ -8,7 +8,7 @@
 
 @section('body')
     <!-- Header -->
-    @include('_components._header_pages')
+    @include('_components._header_pages', ['name' => 'Prescrições'])
     <!-- Header End -->
 
     <!-- Preloader -->
@@ -118,14 +118,6 @@
     </div>
     <!-- Page Content End-->
 
-    <!-- Menubar -->
-    @include('_components._menu_bar')
-    <!-- Menubar -->
-
-    <!-- PWA Offcanvas -->
-    {{-- @include('_components.instalar_pwa') --}}
-    <!-- PWA Offcanvas End -->
-    </div>
     @include('_modais._modal_prescricao')
 @stop
 

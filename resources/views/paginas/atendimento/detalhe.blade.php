@@ -4,7 +4,7 @@
 
 @section('body')
     <!-- Header -->
-    @include('_components._header_pages')
+    @include('_components._header_pages', ["name" => "Atendimento Detalhe"])
     <!-- Header End -->
 
     <!-- Preloader -->
@@ -66,12 +66,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Page Content End-->
-
-    <!-- PWA Offcanvas -->
-    {{-- @include('_components.instalar_pwa') --}}
-    <!-- PWA Offcanvas End -->
     </div>
 @stop
 

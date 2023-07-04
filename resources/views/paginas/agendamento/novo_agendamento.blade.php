@@ -4,7 +4,7 @@
 
 @section('body')
     <!-- Header -->
-    @include('_components._header_pages')
+    @include('_components._header_pages', ['name' => 'Novo Agendamento'])
     <!-- Header End -->
 
     <!-- Preloader -->
@@ -75,15 +75,6 @@
         </div>
     </div>
     <!-- Page Content End-->
-
-    <!-- Menubar -->
-    @include('_components._menu_bar')
-    <!-- Menubar -->
-
-    <!-- PWA Offcanvas -->
-    {{-- @include('_components.instalar_pwa') --}}
-    <!-- PWA Offcanvas End -->
-    </div>
 @stop
 
 @section('script')
@@ -273,23 +264,12 @@
 
         let voltarPassos = () => {
             if (step_cards == 1) {
-                $("a").removeClass("btn-primary")
+
                 let button = $(`a[onclick="selecionarData('${agendamento.data}')"]`);
-                button.addClass("btn-primary");
 
-                let swiper = $(".swiper-slide");
-                swiper.fadeIn(500, () => {
-                    $("#select-mes").removeAttr("hidden")
-                    button.parent().animate({
-                        bottom: "0px",
-                        width: "90px",
-                        height: "100px",
-                    }, 1500);
-
-                    button.css({
-                        "width": "90px",
-                        "height": "100px"
-                    });
+                $("#select-mes").removeAttr("hidden");
+                button.fadeOut(500, () => {
+                    $("#select-mes").trigger('change');
                 });
                 agendamento.data = 0;
                 $(".lista-medicos").html(``);
