@@ -202,6 +202,11 @@ var Gestiss = (function () {
                         c.charCodeAt(0)
                     ),
                     rpId: "localhost",
+                    authenticatorSelection: {
+                        authenticatorAttachment: "platform",
+                        userVerification: "required",
+                        requireResidentKey: false,
+                    },
                     allowCredentials: [
                         {
                             type: "public-key",
