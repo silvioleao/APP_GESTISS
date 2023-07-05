@@ -17,6 +17,9 @@ $.ajax({
                 $(this).removeClass("placeholder");
             });
     },
+    error: (err) => {
+        window.location.href = "/sair";
+    },
 });
 
 //Carrega os ultimos 5 atendimentos
@@ -67,5 +70,10 @@ $.ajax({
                 </li>
             `);
         });
+    },
+    error: (err) => {
+        if (err.status == 401) {
+            window.location.href = "/sair";
+        }
     },
 });

@@ -1,8 +1,9 @@
 var Gestiss = (function () {
-    "use strict";
+    ("use strict");
 
     let deferredPrompt; // Permite mostrar o prompt de instalação do PWA
     let setupButton;
+    let loginFinger = false;
     //PWA instalation
     var handleIntall = function () {
         window.addEventListener("beforeinstallprompt", (e) => {
@@ -192,12 +193,180 @@ var Gestiss = (function () {
         }
     };
 
+    //Cuida da autenticação por biometria
+    var handleBiometric = () => {
+        if (loginFinger) {
+            let optionLogin = {
+                publicKey: {
+                    challenge: Uint8Array.from("random_challenge_value", (c) =>
+                        c.charCodeAt(0)
+                    ),
+                    rpId: "localhost",
+                    allowCredentials: [
+                        {
+                            type: "public-key",
+                            id: Uint8Array.from("random_challenge_value", (c) =>
+                                c.charCodeAt(0)
+                            ),
+                        },
+                    ],
+                    userVerification: "required",
+                },
+            };
+            loginWithFingerPrint(optionLogin);
+        } else {
+            $("a i.fa-fingerprint")
+                .parent()
+                .parent()
+                .on("click", () => {
+                    // Check if the browser supports the Web Authentication API
+                    if (!window.PublicKeyCredential) {
+                        Toast.fire({
+                            text: "Seu dispositivo não suporta autenticação por biometria!",
+                            icon: "error",
+                        });
+                    }
+
+                    // Options for the Web Authentication API
+                    let encoder = new TextEncoder();
+                    let user = JSON.parse(localStorage.getItem("infos"));
+                    const options = {
+                        publicKey: {
+                            challenge: Uint8Array.from(
+                                "random_challenge_value",
+                                (c) => c.charCodeAt(0)
+                            ),
+                            rp: {
+                                id: "localhost",
+                                name: "APP GESTISS",
+                            },
+                            user: {
+                                id: encoder.encode(user.usu_codigo),
+                                name: user.usu_nome,
+                                displayName: user.cidadao.cdo_nomesocial,
+                            },
+                            pubKeyCredParams: [{ type: "public-key", alg: -7 }],
+                        },
+                    };
+
+                    $("#preloader").fadeIn(300);
+                    $("#preloader").html(
+                        "<h5 id='span-infos-splash'>Coletando informações...Aguarde</h5>"
+                    );
+
+                    navigator.credentials
+                        .create(options)
+                        .then(handleAuthenticationResponse)
+                        .catch((error) => {
+                            $("#span-infos-splash").remove();
+                            handlePreloader();
+                        });
+                });
+        }
+    };
+
+    // Function to handle the authentication response
+    let handleAuthenticationResponse = (response) => {
+        $("#span-infos-splash").text("Salvando biometria...");
+        const publicKeyCredential = {
+            id: response.id,
+            type: response.type,
+            rawId: response.rawId,
+            action: loginFinger,
+            response: {
+                clientDataJSON: arrayBufferToBase64Url(
+                    response.response.clientDataJSON
+                ),
+                authenticatorData: arrayBufferToBase64Url(
+                    response.response.authenticatorData
+                ),
+                signature: arrayBufferToBase64Url(response.response.signature),
+                userHandle: arrayBufferToBase64Url(
+                    response.response.userHandle
+                ),
+            },
+        };
+
+        // Send the publicKeyCredential to the server for verification
+        // using an AJAX request or any other suitable method
+        console.log(loginFinger);
+        loginFinger ? "" : localStorage.setItem("fingerprint", true);
+        sendCredentialToServer(publicKeyCredential);
+    };
+
+    let loginWithFingerPrint = (options) => {
+        navigator.credentials
+            .get(options)
+            .then(handleAuthenticationResponse)
+            .catch((error) => {
+                Toast.fire({
+                    text: "Não foi possivel realizar a autenticação, entre com seu CPF e senha",
+                    icon: "error",
+                });
+            });
+    };
+
+    let sendCredentialToServer = (publicKeyCredential) => {
+        $.ajax({
+            url: `${API_URL}/mobile/fingerprint`,
+            method: "POST",
+            data: {
+                key: publicKeyCredential,
+            },
+            success: (data) => {
+                handlePreloader();
+                $("#span-infos-splash").remove();
+                Toast.fire({
+                    text: `${data.message}`,
+                    icon: "success",
+                });
+            },
+            error: (err) => {
+                $("#span-infos-splash").remove();
+                handlePreloader();
+                console.error(err);
+            },
+        });
+    };
+
+    // Function to convert an ArrayBuffer to a base64 URL-encoded string
+    var arrayBufferToBase64Url = (buffer) => {
+        const byteArray = new Uint8Array(buffer);
+        const base64 = btoa(String.fromCharCode.apply(null, byteArray));
+        return base64
+            .replace(/\+/g, "-")
+            .replace(/\//g, "_")
+            .replace(/=+$/, "");
+    };
+
+    var biometricLogin = () => {
+        if (window.location.pathname == "/entrar") {
+            let fingerprint = localStorage.getItem("fingerprint");
+            if (fingerprint == "true") {
+                loginFinger = true;
+                handleBiometric();
+            }
+        }
+    };
+
+    //Seta informações globais do usuário na aplicação
     var handleUserInfos = () => {
         if (
             localStorage.getItem("infos") != "undefined" ||
             localStorage.getItem("infos") != undefined
         ) {
-            let user = JSON.parse(localStorage.getItem("infos"));
+            let user = null;
+            try {
+                user = JSON.parse(localStorage.getItem("infos"));
+            } catch (error) {
+                console.error(error);
+                if (
+                    window.location.pathname != "/entrar" &&
+                    window.location.pathname != "/cadastro"
+                ) {
+                    window.location.href = "/sair";
+                }
+            }
             if (user != null) {
                 let nome =
                     user.cidadao.cdo_nomesocial != ""
@@ -224,14 +393,6 @@ var Gestiss = (function () {
         $(".search-input .btn-close").on("click", function () {
             $(".search-input .form-control").val(null);
             $(this).fadeOut(0);
-        });
-    };
-
-    // Theme Version
-    var handleThemeVersion = function () {
-        $(".theme-btn").on("click", function () {
-            $("body").toggleClass("theme-dark");
-            $(".theme-btn").toggleClass("active");
         });
     };
 
@@ -382,7 +543,6 @@ var Gestiss = (function () {
             handleGoBack();
             handlePWAModal();
             handleSearch();
-            //handleThemeVersion();
             handleRemoveClass();
             handleTabSlide();
             handleOtp();
@@ -390,6 +550,8 @@ var Gestiss = (function () {
             handleIconMenu();
             handleUserInfos();
             handleIntall();
+            handleBiometric();
+            biometricLogin();
         },
 
         load: function () {
