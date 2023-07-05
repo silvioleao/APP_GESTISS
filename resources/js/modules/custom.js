@@ -561,8 +561,8 @@ var Gestiss = (function () {
             handleIconMenu();
             handleUserInfos();
             handleIntall();
-            handleBiometric();
-            biometricLogin();
+            //handleBiometric();
+            //biometricLogin();
         },
 
         load: function () {
