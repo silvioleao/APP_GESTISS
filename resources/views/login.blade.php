@@ -32,7 +32,7 @@
                             <i class="fa fa-eye"></i>
                         </span>
                     </div>
-                    <a href="forgot-password.html" class="btn-link d-block text-center">Esqueceu sua senha ?</a>
+                    <a href="{{ route('esqueci_senha') }}" class="btn-link d-block text-center">Esqueceu sua senha ?</a>
                     <div class="input-group">
                         <a href="javascript:void(0)" class="btn mt-2 btn-primary w-100 btn-rounded"
                             onclick="submit()">Entrar</a>

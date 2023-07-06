@@ -58,3 +58,7 @@ Route::get('/novo/agendamento', function () {
 })->middleware('auth')->name('novo_agendamento');
 
 Route::get('perfil', [Controller::class, 'perfil'])->name('perfil');
+
+Route::get('redefinir_senha', function () {
+    return view('paginas.cidadao.esqueci_senha');
+})->name('esqueci_senha');
