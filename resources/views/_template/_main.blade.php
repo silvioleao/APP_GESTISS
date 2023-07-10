@@ -23,13 +23,13 @@
 
     </div>
 
-    @if (!Request::is('entrar') && !Request::is('cadastro'))
+    @if (!Request::is('entrar') && !Request::is('cadastro') && !Request::is('redefinir_senha'))
         <!-- Menubar -->
         @include('_components._menu_bar')
         <!-- Menubar -->
 
         <!-- PWA Offcanvas -->
-        {{-- @include('_components.instalar_pwa') --}}
+        @include('_components.instalar_pwa')
         <!-- PWA Offcanvas End -->
     @endif
 

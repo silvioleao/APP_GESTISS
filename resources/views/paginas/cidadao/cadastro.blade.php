@@ -599,9 +599,12 @@
         <!-- Footer End -->
 
     </div>
+
+    @include('paginas.moda.modal_wait')
 @stop
 
 @section('script')
+
     <script>
         $("input[name=termos]").on('click', function() {
             $(this).is(":checked") ? $("button[onclick='salvar()']").attr("disabled", false) : $(
@@ -624,16 +627,36 @@
                 data: formData,
                 processData: false,
                 contentType: false,
+                beforeSend: (req) => {
+                    modalWait().toggle();
+                },
                 success: (data) => {
-                    console.log(data);
+                    modalWait().toggle();
                 },
                 error: (err) => {
                     Toast.fire({
                         text: err.responseJSON.usu_cpf,
                         icon: 'error'
                     })
+
+                    setTimeout(() => {
+                        modalWait().toggle();
+                    }, 500);
                 }
             })
+        }
+
+
+        let modal = null;
+
+        function modalWait() {
+            if (modal == null) {
+                modal = new bootstrap.Modal(document.getElementById("modal_waiting"), {
+                    keybord: false,
+                });
+            }
+
+            return modal;
         }
     </script>
 @endsection
